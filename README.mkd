@@ -1,0 +1,17 @@
+
+# ffi-allegro
+
+## Introduction
+`ffi-allegro` is a ruby binding for the allegro graphic library.
+
+## Platform
+`ffi-allegro` is developed and tested on Linux with Ruby 1.9 and the latest
+Allegro release. If you test it on other platforms, I'll be happy to hear
+about it.
+
+## Warning
+This binding is in development, and is likely to change without any prior
+notification, at least until Allegro stable is released.
+
+## Links
+- Allegro: <http://alleg.sourceforge.net>
