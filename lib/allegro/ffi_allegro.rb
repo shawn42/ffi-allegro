@@ -33,15 +33,15 @@ module Allegro extend FFI::Library
     attach_function :al_get_system_driver, [], :pointer
     attach_function :al_get_system_config, [], :pointer
 
-    ALLEGRO_PROGRAM_PATH =         0
-    ALLEGRO_TEMP_PATH =            1
-    ALLEGRO_SYSTEM_DATA_PATH =     2
-    ALLEGRO_USER_DATA_PATH =       3
-    ALLEGRO_USER_HOME_PATH =       4
-    ALLEGRO_USER_SETTINGS_PATH =   5
+    ALLEGRO_PROGRAM_PATH         = 0
+    ALLEGRO_TEMP_PATH            = 1
+    ALLEGRO_SYSTEM_DATA_PATH     = 2
+    ALLEGRO_USER_DATA_PATH       = 3
+    ALLEGRO_USER_HOME_PATH       = 4
+    ALLEGRO_USER_SETTINGS_PATH   = 5
     ALLEGRO_SYSTEM_SETTINGS_PATH = 6
-    ALLEGRO_EXENAME_PATH =         7
-    ALLEGRO_LAST_PATH =            8
+    ALLEGRO_EXENAME_PATH         = 7
+    ALLEGRO_LAST_PATH            = 8
 
     attach_function :al_get_standard_path, [:int], :pointer
     attach_function :al_set_orgname, [:string], :void
@@ -93,26 +93,26 @@ module Allegro extend FFI::Library
     #}}}
 
     #{{{1 Events
-    ALLEGRO_EVENT_JOYSTICK_AXIS =         1
+    ALLEGRO_EVENT_JOYSTICK_AXIS        =  1
     ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN =  2
-    ALLEGRO_EVENT_JOYSTICK_BUTTON_UP =    3
-    ALLEGRO_EVENT_KEY_DOWN =             10
-    ALLEGRO_EVENT_KEY_REPEAT =           11
-    ALLEGRO_EVENT_KEY_UP =               12
-    ALLEGRO_EVENT_MOUSE_AXES =           20
-    ALLEGRO_EVENT_MOUSE_BUTTON_DOWN =    21
-    ALLEGRO_EVENT_MOUSE_BUTTON_UP =      22
-    ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY =  23
-    ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY =  24
-    ALLEGRO_EVENT_MOUSE_WARPED =         25
-    ALLEGRO_EVENT_TIMER =                30
-    ALLEGRO_EVENT_DISPLAY_EXPOSE =       40
-    ALLEGRO_EVENT_DISPLAY_RESIZE =       41
-    ALLEGRO_EVENT_DISPLAY_CLOSE =        42
-    ALLEGRO_EVENT_DISPLAY_LOST =         43
-    ALLEGRO_EVENT_DISPLAY_FOUND =        44
-    ALLEGRO_EVENT_DISPLAY_SWITCH_IN =    45
-    ALLEGRO_EVENT_DISPLAY_SWITCH_OUT =   46
+    ALLEGRO_EVENT_JOYSTICK_BUTTON_UP   =  3
+    ALLEGRO_EVENT_KEY_DOWN             = 10
+    ALLEGRO_EVENT_KEY_REPEAT           = 11
+    ALLEGRO_EVENT_KEY_UP               = 12
+    ALLEGRO_EVENT_MOUSE_AXES           = 20
+    ALLEGRO_EVENT_MOUSE_BUTTON_DOWN    = 21
+    ALLEGRO_EVENT_MOUSE_BUTTON_UP      = 22
+    ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY  = 23
+    ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY  = 24
+    ALLEGRO_EVENT_MOUSE_WARPED         = 25
+    ALLEGRO_EVENT_TIMER                = 30
+    ALLEGRO_EVENT_DISPLAY_EXPOSE       = 40
+    ALLEGRO_EVENT_DISPLAY_RESIZE       = 41
+    ALLEGRO_EVENT_DISPLAY_CLOSE        = 42
+    ALLEGRO_EVENT_DISPLAY_LOST         = 43
+    ALLEGRO_EVENT_DISPLAY_FOUND        = 44
+    ALLEGRO_EVENT_DISPLAY_SWITCH_IN    = 45
+    ALLEGRO_EVENT_DISPLAY_SWITCH_OUT   = 46
 
     class AnyEvent < FFI::Struct
         layout :type, :int,
@@ -446,8 +446,8 @@ module Allegro extend FFI::Library
     #}}}
 
     #{{{1 Joystick
-    AL_MAX_JOYSTICK_AXES =     3
-    AL_MAX_JOYSTICK_STICKS =   8
+    AL_MAX_JOYSTICK_AXES    =  3
+    AL_MAX_JOYSTICK_STICKS  =  8
     AL_MAX_JOYSTICK_BUTTONS = 32
 
     class ALLEGRO_JOYSTICK_STICK_STATE < FFI::Struct
@@ -511,44 +511,44 @@ module Allegro extend FFI::Library
     #}}}
 
     #{{{1 Display
-    ALLEGRO_WINDOWED =                 1
-    ALLEGRO_FULLSCREEN =               2
-    ALLEGRO_RESIZABLE =               16
-    ALLEGRO_NOFRAME =                 64
+    ALLEGRO_WINDOWED               =   1
+    ALLEGRO_FULLSCREEN             =   2
+    ALLEGRO_RESIZABLE              =  16
+    ALLEGRO_NOFRAME                =  64
     ALLEGRO_GENERATE_EXPOSE_EVENTS = 128
 
-    ALLEGRO_RED_SIZE =               0
-    ALLEGRO_GREEN_SIZE =             1
-    ALLEGRO_BLUE_SIZE =              2
-    ALLEGRO_ALPHA_SIZE =             3
-    ALLEGRO_RED_SHIFT =              4
-    ALLEGRO_GREEN_SHIFT =            5
-    ALLEGRO_BLUE_SHIFT =             6
-    ALLEGRO_ALPHA_SHIFT =            7
-    ALLEGRO_ACC_RED_SIZE =           8
-    ALLEGRO_ACC_GREEN_SIZE =         9
-    ALLEGRO_ACC_BLUE_SIZE =         10
-    ALLEGRO_ACC_ALPHA_SIZE =        11
-    ALLEGRO_STEREO =                12
-    ALLEGRO_AUX_BUFFERS =           13
-    ALLEGRO_COLOR_SIZE =            14
-    ALLEGRO_DEPTH_SIZE =            15
-    ALLEGRO_STENCIL_SIZE =          16
-    ALLEGRO_SAMPLE_BUFFERS =        17
-    ALLEGRO_SAMPLES =               18
-    ALLEGRO_RENDER_METHOD =         19
-    ALLEGRO_FLOAT_COLOR =           20
-    ALLEGRO_FLOAT_DEPTH =           21
-    ALLEGRO_SINGLE_BUFFER =         22
-    ALLEGRO_SWAP_METHOD =           23
-    ALLEGRO_COMPATIBLE_DISPLAY =    24
+    ALLEGRO_RED_SIZE              =  0
+    ALLEGRO_GREEN_SIZE            =  1
+    ALLEGRO_BLUE_SIZE             =  2
+    ALLEGRO_ALPHA_SIZE            =  3
+    ALLEGRO_RED_SHIFT             =  4
+    ALLEGRO_GREEN_SHIFT           =  5
+    ALLEGRO_BLUE_SHIFT            =  6
+    ALLEGRO_ALPHA_SHIFT           =  7
+    ALLEGRO_ACC_RED_SIZE          =  8
+    ALLEGRO_ACC_GREEN_SIZE        =  9
+    ALLEGRO_ACC_BLUE_SIZE         = 10
+    ALLEGRO_ACC_ALPHA_SIZE        = 11
+    ALLEGRO_STEREO                = 12
+    ALLEGRO_AUX_BUFFERS           = 13
+    ALLEGRO_COLOR_SIZE            = 14
+    ALLEGRO_DEPTH_SIZE            = 15
+    ALLEGRO_STENCIL_SIZE          = 16
+    ALLEGRO_SAMPLE_BUFFERS        = 17
+    ALLEGRO_SAMPLES               = 18
+    ALLEGRO_RENDER_METHOD         = 19
+    ALLEGRO_FLOAT_COLOR           = 20
+    ALLEGRO_FLOAT_DEPTH           = 21
+    ALLEGRO_SINGLE_BUFFER         = 22
+    ALLEGRO_SWAP_METHOD           = 23
+    ALLEGRO_COMPATIBLE_DISPLAY    = 24
     ALLEGRO_UPDATE_DISPLAY_REGION = 25
-    ALLEGRO_VSYNC =                 26
+    ALLEGRO_VSYNC                 = 26
     ALLEGRO_DISPLAY_OPTIONS_COUNT = 27
 
     ALLEGRO_DONTCARE = 0
-    ALLEGRO_REQUIRE =  1
-    ALLEGRO_SUGGEST =  2
+    ALLEGRO_REQUIRE  = 1
+    ALLEGRO_SUGGEST  = 2
 
     class ALLEGRO_DISPLAY_MODE < FFI::Struct
         layout :width, :int,
