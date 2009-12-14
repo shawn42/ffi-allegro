@@ -52,6 +52,81 @@ module Allegro extend FFI::Library
     attach_function :al_inhibit_screensaver, [:bool], :bool
     #}}}
 
+    #{{{1 UTF-8 strings
+    attach_function :al_ustr_new, [:string], :pointer
+    attach_function :al_ustr_new_from_buffer, [:string, :uint], :pointer
+    attach_function :al_ustr_newf, [:string, :varargs], :pointer
+    attach_function :al_ustr_free, [:pointer], :void
+    attach_function :al_cstr, [:pointer], :string
+    attach_function :al_ustr_to_buffer, [:pointer, :string, :int], :void
+    attach_function :al_cstr_dup, [:pointer], :string
+    attach_function :al_ustr_dup, [:pointer], :pointer
+    attach_function :al_ustr_dup_substr, [:pointer, :int, :int], :pointer
+    attach_function :al_ustr_empty_string, [], :pointer
+    attach_function :al_ref_cstr, [:pointer, :string], :pointer
+    attach_function :al_ref_buffer, [:pointer, :string, :uint], :pointer
+    attach_function :al_ref_ustr, [:pointer, :pointer, :int, :int], :pointer
+    attach_function :al_ustr_size, [:pointer], :uint
+    attach_function :al_ustr_length, [:pointer], :uint
+    attach_function :al_ustr_offset, [:pointer, :int], :int
+    attach_function :al_ustr_next, [:pointer, :pointer], :bool
+    attach_function :al_ustr_prev, [:pointer, :pointer], :bool
+    attach_function :al_ustr_get, [:pointer, :int], :int32
+    attach_function :al_ustr_get_next, [:pointer, :pointer], :int32
+    attach_function :al_ustr_prev_get, [:pointer, :pointer], :int32
+    attach_function :al_ustr_insert, [:pointer, :int, :pointer], :bool
+    attach_function :al_ustr_insert_cstr, [:pointer, :int, :string], :bool
+    attach_function :al_ustr_insert_chr, [:pointer, :int, :int32], :uint
+    attach_function :al_ustr_append, [:pointer, :pointer], :bool
+    attach_function :al_ustr_append_cstr, [:pointer, :string], :bool
+    attach_function :al_ustr_append_chr, [:pointer, :int32], :uint
+    attach_function :al_ustr_appendf, [:pointer, :string, :varargs], :bool
+    # al_ustr_vappendf can't be bound since va_list args aren't currently
+    # supported by ffi.
+    # attach_function :al_ustr_vappendf, [:pointer, :string, :va_list], :bool
+    attach_function :al_ustr_remove_chr, [:pointer, :int], :bool
+    attach_function :al_ustr_remove_range, [:pointer, :int, :int], :bool
+    attach_function :al_ustr_truncate, [:pointer, :int], :bool
+    attach_function :al_ustr_ltrim_ws, [:pointer], :bool
+    attach_function :al_ustr_rtrim_ws, [:pointer], :bool
+    attach_function :al_ustr_trim_ws, [:pointer], :bool
+    attach_function :al_ustr_assign, [:pointer, :pointer], :bool
+    attach_function :al_ustr_assign_substr, [:pointer, :pointer, :int, :int],
+                    :bool
+    attach_function :al_ustr_assign_cstr, [:pointer, :string], :bool
+    attach_function :al_ustr_set_chr, [:pointer, :int, :int32], :uint
+    attach_function :al_ustr_replace_range, [:pointer, :int, :int, :pointer],
+                    :bool
+    attach_function :al_ustr_find_chr, [:pointer, :int, :int32], :int
+    attach_function :al_ustr_rfind_chr, [:pointer, :int, :int32], :int
+    attach_function :al_ustr_find_set, [:pointer, :int, :pointer], :int
+    attach_function :al_ustr_find_set_cstr, [:pointer, :int, :string], :int
+    attach_function :al_ustr_find_cset, [:pointer, :int, :pointer], :int
+    attach_function :al_ustr_find_cset_cstr, [:pointer, :int, :string], :int
+    attach_function :al_ustr_find_str, [:pointer, :int, :pointer], :int
+    attach_function :al_ustr_find_cstr, [:pointer, :int, :string], :int
+    attach_function :al_ustr_rfind_str, [:pointer, :int, :pointer], :int
+    attach_function :al_ustr_rfind_cstr, [:pointer, :int, :string], :int
+    attach_function :al_ustr_find_replace, [:pointer, :int, :pointer,
+                    :pointer], :bool
+    attach_function :al_ustr_find_replace_cstr, [:pointer, :int, :string,
+                    :string], :bool
+    attach_function :al_ustr_equal, [:pointer, :pointer], :bool
+    attach_function :al_ustr_compare, [:pointer, :pointer], :int
+    attach_function :al_ustr_ncompare, [:pointer, :pointer, :int], :int
+    attach_function :al_ustr_has_prefix, [:pointer, :pointer], :bool
+    attach_function :al_ustr_has_prefix_cstr, [:pointer, :string], :bool
+    attach_function :al_ustr_has_suffix, [:pointer, :pointer], :bool
+    attach_function :al_ustr_has_suffix_cstr, [:pointer, :string], :bool
+    attach_function :al_utf8_width, [:int32], :uint
+    attach_function :al_utf8_encode, [:pointer, :int32], :uint
+    attach_function :al_ustr_new_from_utf16, [:pointer], :pointer
+    attach_function :al_ustr_size_utf16, [:pointer], :uint
+    attach_function :al_ustr_encode_utf16, [:pointer, :pointer, :uint], :uint
+    attach_function :al_utf16_width, [:int], :uint
+    attach_function :al_utf16_encode, [:pointer, :int32], :uint
+    #}}}
+
     #{{{1 Paths
     attach_function :al_create_path, [:string], :pointer
     attach_function :al_create_path_for_directory, [:string], :pointer
