@@ -492,20 +492,22 @@ module Allegro extend FFI::Library
                :a, :float
     end
 
-    attach_function :al_map_rgb, [:uchar, :uchar, :uchar], ALLEGRO_COLOR
+    attach_function :al_map_rgb, [:uchar, :uchar, :uchar],
+                    ALLEGRO_COLOR.by_value
     attach_function :al_map_rgba, [:uchar, :uchar, :uchar, :uchar],
-                    ALLEGRO_COLOR
-    attach_function :al_map_rgb_f, [:float, :float, :float], ALLEGRO_COLOR
+                    ALLEGRO_COLOR.by_value
+    attach_function :al_map_rgb_f, [:float, :float, :float],
+                    ALLEGRO_COLOR.by_value
     attach_function :al_map_rgba_f, [:float, :float, :float, :float],
-                    ALLEGRO_COLOR
-    attach_function :al_unmap_rgb, [ALLEGRO_COLOR, :pointer, :pointer,
-                    :pointer], :void
-    attach_function :al_unmap_rgba, [ALLEGRO_COLOR, :pointer, :pointer,
+                    ALLEGRO_COLOR.by_value
+    attach_function :al_unmap_rgb, [ALLEGRO_COLOR.by_value, :pointer,
                     :pointer, :pointer], :void
-    attach_function :al_unmap_rgb_f, [ALLEGRO_COLOR, :pointer, :pointer,
-                    :pointer], :void
-    attach_function :al_unmap_rgba_f, [ALLEGRO_COLOR, :pointer, :pointer,
+    attach_function :al_unmap_rgba, [ALLEGRO_COLOR.by_value, :pointer,
+                    :pointer, :pointer, :pointer], :void
+    attach_function :al_unmap_rgb_f, [ALLEGRO_COLOR.by_value, :pointer,
                     :pointer, :pointer], :void
+    attach_function :al_unmap_rgba_f, [ALLEGRO_COLOR.by_value, :pointer,
+                    :pointer, :pointer, :pointer], :void
     #}}}
 
     #{{{1 Display
@@ -588,8 +590,9 @@ module Allegro extend FFI::Library
     attach_function :al_get_display_mode, [:int, :pointer], :pointer
     attach_function :al_wait_for_vsync, [], :bool
     attach_function :al_get_display_event_source, [:pointer], :pointer
-    attach_function :al_clear_to_color, [ALLEGRO_COLOR], :void
-    attach_function :al_draw_pixel, [:float, :float, ALLEGRO_COLOR], :void
+    attach_function :al_clear_to_color, [ALLEGRO_COLOR.by_value], :void
+    attach_function :al_draw_pixel, [:float, :float, ALLEGRO_COLOR.by_value],
+                    :void
     attach_function :al_set_display_icon, [:pointer], :void
     attach_function :al_get_num_video_adapters, [], :int
     attach_function :al_get_monitor_info, [:int, :pointer], :void
@@ -727,12 +730,14 @@ module Allegro extend FFI::Library
     attach_function :al_lock_bitmap_region, [:pointer, :int, :int, :int,
                     :int, :int, :int], :pointer
     attach_function :al_unlock_bitmap, [:pointer], :void
-    attach_function :al_put_pixel, [:int, :int, ALLEGRO_COLOR], :void
-    attach_function :al_get_pixel, [:pointer, :int, :int], ALLEGRO_COLOR
+    attach_function :al_put_pixel, [:int, :int, ALLEGRO_COLOR.by_value],
+                    :void
+    attach_function :al_get_pixel, [:pointer, :int, :int],
+                    ALLEGRO_COLOR.by_value
     attach_function :al_get_pixel_size, [:int], :int
     attach_function :al_get_pixel_format_bits, [:int], :int
-    attach_function :al_convert_mask_to_alpha, [:pointer, ALLEGRO_COLOR],
-                    :void
+    attach_function :al_convert_mask_to_alpha, [:pointer,
+                    ALLEGRO_COLOR.by_value], :void
     attach_function :al_set_clipping_rectangle, [:int, :int, :int, :int],
                     :void
     attach_function :al_get_clipping_rectangle, [:pointer, :pointer,
@@ -742,14 +747,15 @@ module Allegro extend FFI::Library
     attach_function :al_is_sub_bitmap, [:pointer], :bool
     attach_function :al_clone_bitmap, [:pointer], :pointer
     attach_function :al_is_bitmap_locked, [:pointer], :bool
-    attach_function :al_set_blender, [:int, :int, ALLEGRO_COLOR], :void
+    attach_function :al_set_blender, [:int, :int, ALLEGRO_COLOR.by_value],
+                    :void
     attach_function :al_get_blender, [:pointer, :pointer, :pointer], :void
     attach_function :al_set_separate_blender, [:int, :int, :int, :int,
-                    ALLEGRO_COLOR], :void
+                    ALLEGRO_COLOR.by_value], :void
     attach_function :al_get_separate_blender, [:pointer, :pointer, :pointer,
                     :pointer, :pointer], :void
     attach_function :_al_get_blend_color, [], :pointer
-    attach_function :_al_put_pixel, [:pointer, :int, :int, ALLEGRO_COLOR],
-                    :void
+    attach_function :_al_put_pixel, [:pointer, :int, :int,
+                    ALLEGRO_COLOR.by_value], :void
     #}}}
 end
