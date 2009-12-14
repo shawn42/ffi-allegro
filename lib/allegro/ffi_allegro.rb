@@ -81,6 +81,28 @@ module Allegro extend FFI::Library
     attach_function :al_is_path_present, [:pointer], :bool
     #}}}
 
+    #{{{1 Configuration files
+    attach_function :al_create_config, [], :pointer
+    attach_function :al_add_config_section, [:pointer, :string], :void
+    attach_function :al_set_config_value, [:pointer, :string, :string,
+                    :string], :void
+    attach_function :al_add_config_comment, [:pointer, :string, :string],
+                    :void
+    attach_function :al_get_config_value, [:pointer, :string, :string],
+                    :string
+    attach_function :al_load_config_file, [:string], :pointer
+    attach_function :al_save_config_file, [:pointer, :string], :bool
+    attach_function :al_merge_config_into, [:pointer, :pointer], :void
+    attach_function :al_merge_config, [:pointer, :pointer], :pointer
+    attach_function :al_destroy_config, [:pointer], :void
+    attach_function :al_get_first_config_section, [:pointer, :pointer],
+                    :string
+    attach_function :al_get_next_config_section, [:pointer], :string
+    attach_function :al_get_first_config_entry, [:pointer, :string,
+                    :pointer], :string
+    attach_function :al_get_next_config_entry, [:pointer], :string
+    #}}}
+
     #{{{1 Timeouts
     class ALLEGRO_TIMEOUT < FFI::Struct
         layout :__pad1__, :uint32,
