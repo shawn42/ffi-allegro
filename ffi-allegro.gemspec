@@ -12,9 +12,13 @@ $gemspec = Gem::Specification.new do |s|
 ffi-allegro is a binding to the Allegro multimedia libraray.
 EOF
 
-  s.has_rdoc = false
-  s.files = Dir['lib/**/*.rb', 'examples/*.rb']
-  s.require_paths = ["lib"]
+  s.files = Dir[
+      'COPYING',
+      'README.mkd',
+      'lib/**/*.rb',
+      'examples/*.rb',
+  ]
+
   s.required_ruby_version = '>= 1.9'
 
   s.add_dependency( 'ffi', '>=0.6.0pre' )
