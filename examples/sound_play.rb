@@ -19,6 +19,7 @@ if not al_install_audio ALLEGRO_AUDIO_DRIVER_AUTODETECT
 end
 
 al_init_ogg_vorbis_addon
+al_init_flac_addon
 
 sample = al_load_sample audio_file
 if sample.null?
