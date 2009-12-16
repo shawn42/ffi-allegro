@@ -63,4 +63,3 @@ al_destroy_event_queue evqueue
 al_destroy_display dpy
 
 al_uninstall_system
-
