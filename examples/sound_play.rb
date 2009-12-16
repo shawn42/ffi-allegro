@@ -18,6 +18,8 @@ if not al_install_audio ALLEGRO_AUDIO_DRIVER_AUTODETECT
     exit 1
 end
 
+al_init_ogg_vorbis_addon
+
 sample = al_load_sample audio_file
 if sample.null?
     puts "cannot load sample from file #{audio_file} (#{al_get_errno})"
