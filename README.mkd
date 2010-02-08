@@ -13,5 +13,9 @@ about it.
 This binding is in development, and is likely to change without any prior
 notification, at least until Allegro stable is released.
 
+## License
+`ffi-allegro` is available under a BSD license; see `LICENSE` for more
+informations.
+
 ## Links
 - Allegro: <http://alleg.sourceforge.net>
