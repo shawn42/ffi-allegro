@@ -54,7 +54,7 @@ module Allegro extend FFI::Library
 
     #{{{1 UTF-8 strings
     attach_function :al_ustr_new, [:string], :pointer
-    attach_function :al_ustr_new_from_buffer, [:string, :uint], :pointer
+    attach_function :al_ustr_new_from_buffer, [:string, :size_t], :pointer
     attach_function :al_ustr_newf, [:string, :varargs], :pointer
     attach_function :al_ustr_free, [:pointer], :void
     attach_function :al_cstr, [:pointer], :string
@@ -64,10 +64,10 @@ module Allegro extend FFI::Library
     attach_function :al_ustr_dup_substr, [:pointer, :int, :int], :pointer
     attach_function :al_ustr_empty_string, [], :pointer
     attach_function :al_ref_cstr, [:pointer, :string], :pointer
-    attach_function :al_ref_buffer, [:pointer, :string, :uint], :pointer
+    attach_function :al_ref_buffer, [:pointer, :string, :size_t], :pointer
     attach_function :al_ref_ustr, [:pointer, :pointer, :int, :int], :pointer
-    attach_function :al_ustr_size, [:pointer], :uint
-    attach_function :al_ustr_length, [:pointer], :uint
+    attach_function :al_ustr_size, [:pointer], :size_t
+    attach_function :al_ustr_length, [:pointer], :size_t
     attach_function :al_ustr_offset, [:pointer, :int], :int
     attach_function :al_ustr_next, [:pointer, :pointer], :bool
     attach_function :al_ustr_prev, [:pointer, :pointer], :bool
@@ -76,10 +76,10 @@ module Allegro extend FFI::Library
     attach_function :al_ustr_prev_get, [:pointer, :pointer], :int32
     attach_function :al_ustr_insert, [:pointer, :int, :pointer], :bool
     attach_function :al_ustr_insert_cstr, [:pointer, :int, :string], :bool
-    attach_function :al_ustr_insert_chr, [:pointer, :int, :int32], :uint
+    attach_function :al_ustr_insert_chr, [:pointer, :int, :int32], :size_t
     attach_function :al_ustr_append, [:pointer, :pointer], :bool
     attach_function :al_ustr_append_cstr, [:pointer, :string], :bool
-    attach_function :al_ustr_append_chr, [:pointer, :int32], :uint
+    attach_function :al_ustr_append_chr, [:pointer, :int32], :size_t
     attach_function :al_ustr_appendf, [:pointer, :string, :varargs], :bool
     # al_ustr_vappendf can't be bound since va_list args aren't currently
     # supported by ffi.
@@ -94,7 +94,7 @@ module Allegro extend FFI::Library
     attach_function :al_ustr_assign_substr, [:pointer, :pointer, :int, :int],
                     :bool
     attach_function :al_ustr_assign_cstr, [:pointer, :string], :bool
-    attach_function :al_ustr_set_chr, [:pointer, :int, :int32], :uint
+    attach_function :al_ustr_set_chr, [:pointer, :int, :int32], :size_t
     attach_function :al_ustr_replace_range, [:pointer, :int, :int, :pointer],
                     :bool
     attach_function :al_ustr_find_chr, [:pointer, :int, :int32], :int
@@ -118,13 +118,14 @@ module Allegro extend FFI::Library
     attach_function :al_ustr_has_prefix_cstr, [:pointer, :string], :bool
     attach_function :al_ustr_has_suffix, [:pointer, :pointer], :bool
     attach_function :al_ustr_has_suffix_cstr, [:pointer, :string], :bool
-    attach_function :al_utf8_width, [:int32], :uint
-    attach_function :al_utf8_encode, [:pointer, :int32], :uint
+    attach_function :al_utf8_width, [:int32], :size_t
+    attach_function :al_utf8_encode, [:pointer, :int32], :size_t
     attach_function :al_ustr_new_from_utf16, [:pointer], :pointer
-    attach_function :al_ustr_size_utf16, [:pointer], :uint
-    attach_function :al_ustr_encode_utf16, [:pointer, :pointer, :uint], :uint
-    attach_function :al_utf16_width, [:int], :uint
-    attach_function :al_utf16_encode, [:pointer, :int32], :uint
+    attach_function :al_ustr_size_utf16, [:pointer], :size_t
+    attach_function :al_ustr_encode_utf16, [:pointer, :pointer, :size_t],
+                    :size_t
+    attach_function :al_utf16_width, [:int], :size_t
+    attach_function :al_utf16_encode, [:pointer, :int32], :size_t
     #}}}
 
     #{{{1 State

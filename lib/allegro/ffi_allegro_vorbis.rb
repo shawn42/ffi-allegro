@@ -7,6 +7,6 @@ module Allegro extend FFI::Library
     attach_function :al_init_ogg_vorbis_addon, [], :bool
     attach_function :al_load_sample_ogg_vorbis, [:string], :pointer
     attach_function :al_load_audio_stream_ogg_vorbis, [:string,
-                    :uint, :uint], :pointer
+                    :size_t, :uint], :pointer
     attach_function :al_get_allegro_ogg_vorbis_version, [], :uint32
 end

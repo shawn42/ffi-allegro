@@ -85,7 +85,7 @@ module Allegro extend FFI::Library
     attach_function :al_get_sample, [:pointer], :pointer
     attach_function :al_play_sample_instance, [:pointer], :bool
     attach_function :al_stop_sample_instance, [:pointer], :bool
-    attach_function :al_create_audio_stream, [:uint, :ulong, :ulong, :int,
+    attach_function :al_create_audio_stream, [:size_t, :ulong, :ulong, :int,
                     :int], :pointer
     attach_function :al_destroy_audio_stream, [:pointer], :void
     attach_function :al_drain_audio_stream, [:pointer], :void
@@ -153,8 +153,8 @@ module Allegro extend FFI::Library
     attach_function :al_install_audio, [:int], :bool
     attach_function :al_uninstall_audio, [], :void
     attach_function :al_get_allegro_audio_version, [], :uint32
-    attach_function :al_get_channel_count, [:int], :uint
-    attach_function :al_get_depth_size, [:int], :uint
+    attach_function :al_get_channel_count, [:int], :size_t
+    attach_function :al_get_depth_size, [:int], :size_t
     attach_function :al_reserve_samples, [:int], :bool
     attach_function :al_get_default_mixer, [], :pointer
     attach_function :al_set_default_mixer, [:pointer], :bool
@@ -168,14 +168,14 @@ module Allegro extend FFI::Library
     attach_function :al_register_sample_saver, [:string, callback([:string,
                     :pointer], :bool)], :bool
     attach_function :al_register_audio_stream_loader, [:string,
-                    callback([:string, :uint, :uint], :pointer)], :pointer
+                    callback([:string, :size_t, :uint], :pointer)], :pointer
     attach_function :al_load_sample, [:string], :pointer
     attach_function :al_save_sample, [:string, :pointer], :bool
-    attach_function :al_load_audio_stream, [:string, :uint, :uint], :pointer
+    attach_function :al_load_audio_stream, [:string, :size_t, :uint], :pointer
     attach_function :al_load_sample_wav, [:string], :pointer
     attach_function :al_save_sample_wav, [:string, :pointer], :bool
     attach_function :al_save_sample_wav_pf, [:pointer, :pointer], :bool
-    attach_function :al_load_audio_stream_wav, [:string, :uint, :uint],
+    attach_function :al_load_audio_stream_wav, [:string, :size_t, :uint],
                     :pointer
 end
 
