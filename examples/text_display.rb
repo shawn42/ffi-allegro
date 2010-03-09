@@ -32,14 +32,15 @@ def run(argc, argv)
     exit 1
   end
 
-  bgcolor = al_map_rgb 20, 20, 20
+  bgcolor = al_map_rgb 20, 20, 255
   fgcolor = al_map_rgb 40, 80, 160
 
   stop = false
   while !stop do
     al_clear_to_color bgcolor
+    # why does this line cause it to draw in black?
+    #al_set_blender ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA, fgcolor
 
-    al_set_blender ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA, fgcolor
     al_draw_text font, 400, 300, ALLEGRO_ALIGN_CENTRE, "Hello!"
 
     al_flip_display

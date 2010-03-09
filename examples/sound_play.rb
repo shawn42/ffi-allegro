@@ -9,7 +9,7 @@ if ARGV.length != 1
 end
 
 def run(argc, argv)
-  audio_file = argv[0]
+  audio_file = ARGV[0]
   al_install_system nil
 
   if not al_install_audio ALLEGRO_AUDIO_DRIVER_AUTODETECT
@@ -20,7 +20,6 @@ def run(argc, argv)
   al_init_ogg_vorbis_addon
   al_init_flac_addon
 
-  audio_file = "/Users/shawn42/omg_aliens/data/sounds/death.wav"
   sample = al_load_sample audio_file
   if sample.null?
       puts "cannot load sample from file #{audio_file} (#{al_get_errno})"
