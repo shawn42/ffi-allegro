@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro-4.9.18'
+    ffi_lib 'allegro'
 
     #{{{1 Base
     ALLEGRO_VERSION = 4
@@ -28,7 +28,7 @@ module Allegro extend FFI::Library
 
     #{{{1 System
     attach_function :al_install_system,
-                    [callback([callback([:pointer ], :void)], :int)], :bool
+                    [:int, callback([callback([:pointer ], :void)], :int)], :bool
     attach_function :al_uninstall_system, [], :void
     attach_function :al_get_system_driver, [], :pointer
     attach_function :al_get_system_config, [], :pointer

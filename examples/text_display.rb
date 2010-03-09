@@ -11,7 +11,7 @@ end
 def run(argc, argv)
   font_file = ARGV[0]
 
-  al_install_system nil
+  al_install_system ALLEGRO_VERSION_INT, nil
   al_init_font_addon
   al_init_ttf_addon
 

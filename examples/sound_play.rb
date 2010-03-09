@@ -10,7 +10,7 @@ end
 
 def run(argc, argv)
   audio_file = ARGV[0]
-  al_install_system nil
+  al_install_system ALLEGRO_VERSION_INT, nil
 
   if not al_install_audio ALLEGRO_AUDIO_DRIVER_AUTODETECT
       puts "cannot install audio system: #{al_get_errno}"

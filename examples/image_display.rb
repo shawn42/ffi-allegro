@@ -11,7 +11,7 @@ end
 def run(argc, argv)
   img_file = ARGV[0]
 
-  al_install_system nil
+  al_install_system ALLEGRO_VERSION_INT, nil
   al_init_image_addon
 
   dpy = al_create_display 800, 600

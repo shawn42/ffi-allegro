@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_image-4.9.18'
+    ffi_lib 'allegro_image'
 
     ALLEGRO_IIO_LOADER_FUNCTION    = callback([:string], :pointer)
     ALLEGRO_IIO_FS_LOADER_FUNCTION = callback([:pointer], :pointer)

@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_audio-4.9.18'
+    ffi_lib 'allegro_audio'
 
     ALLEGRO_EVENT_AUDIO_STREAM_FRAGMENT = 513
     ALLEGRO_EVENT_AUDIO_STREAM_FINISHED = 514

@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_vorbis-4.9.18'
+    ffi_lib 'allegro_vorbis'
 
     attach_function :al_init_ogg_vorbis_addon, [], :bool
 #    attach_function :al_load_sample_ogg_vorbis, [:string], :pointer
