@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_color-4.9.16'
+    ffi_lib 'allegro_color-4.9.18'
 
     attach_function :al_get_allegro_color_version, [], :uint32
     attach_function :al_color_hsv_to_rgb, [:float, :float, :float, :pointer,

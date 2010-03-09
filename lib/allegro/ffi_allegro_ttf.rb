@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_ttf-4.9.16'
+    ffi_lib 'allegro_ttf-4.9.18'
 
     ALLEGRO_TTF_NO_KERNING = 1
 

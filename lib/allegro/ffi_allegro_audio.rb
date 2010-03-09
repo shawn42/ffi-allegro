@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_audio-4.9.16'
+    ffi_lib 'allegro_audio-4.9.18'
 
     ALLEGRO_EVENT_AUDIO_STREAM_FRAGMENT = 513
     ALLEGRO_EVENT_AUDIO_STREAM_FINISHED = 514
@@ -172,10 +172,10 @@ module Allegro extend FFI::Library
     attach_function :al_load_sample, [:string], :pointer
     attach_function :al_save_sample, [:string, :pointer], :bool
     attach_function :al_load_audio_stream, [:string, :size_t, :uint], :pointer
-    attach_function :al_load_sample_wav, [:string], :pointer
-    attach_function :al_save_sample_wav, [:string, :pointer], :bool
-    attach_function :al_save_sample_wav_pf, [:pointer, :pointer], :bool
-    attach_function :al_load_audio_stream_wav, [:string, :size_t, :uint],
-                    :pointer
+#    attach_function :al_load_sample_wav, [:string], :pointer
+#    attach_function :al_save_sample_wav, [:string, :pointer], :bool
+#    attach_function :al_save_sample_wav_pf, [:pointer, :pointer], :bool
+#    attach_function :al_load_audio_stream_wav, [:string, :size_t, :uint],
+#                    :pointer
 end
 

@@ -2,16 +2,16 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro-4.9.16'
+    ffi_lib 'allegro-4.9.18'
 
     #{{{1 Base
     ALLEGRO_VERSION = 4
     ALLEGRO_SUB_VERSION = 9
-    ALLEGRO_WIP_VERSION = 16
+    ALLEGRO_WIP_VERSION = 18
     ALLEGRO_RELEASE_NUMBER = 1
 
-    ALLEGRO_VERSION_STR = "4.9.16 (WIP)"
-    ALLEGRO_VERSION_INT = ((4 << 24) | (9 << 16) | (16 << 8) | 1)
+    ALLEGRO_VERSION_STR = "4.9.18 (WIP)"
+    ALLEGRO_VERSION_INT = ((4 << 24) | (9 << 16) | (18 << 8) | 1)
 
     ALLEGRO_DATE_STR = "2009"
     ALLEGRO_DATE = 20091129
@@ -28,10 +28,13 @@ module Allegro extend FFI::Library
 
     #{{{1 System
     attach_function :al_install_system,
-                    [callback([callback([], :void)], :int)], :bool
+                    [callback([callback([:pointer ], :void)], :int)], :bool
     attach_function :al_uninstall_system, [], :void
     attach_function :al_get_system_driver, [], :pointer
     attach_function :al_get_system_config, [], :pointer
+    
+    attach_function :al_run_main, [:int, :pointer, callback([:int,:pointer],:int)], :int
+
 
     ALLEGRO_PROGRAM_PATH         = 0
     ALLEGRO_TEMP_PATH            = 1
@@ -297,10 +300,10 @@ module Allegro extend FFI::Library
                :source, :pointer,
                :timestamp, :double,
                :__internal__descr, :pointer,
-               :data1, :__intptr_t,
-               :data2, :__intptr_t,
-               :data3, :__intptr_t,
-               :data4, :__intptr_t
+               :data1, :pointer,
+               :data2, :pointer,
+               :data3, :pointer,
+               :data4, :pointer
     end
 
     class Event < FFI::Union
@@ -323,8 +326,8 @@ module Allegro extend FFI::Library
     attach_function :al_destroy_event_queue, [:pointer], :void
     attach_function :al_register_event_source, [:pointer, :pointer], :void
     attach_function :al_unregister_event_source, [:pointer, :pointer], :void
-    attach_function :al_set_event_source_data, [:pointer, :__intptr_t], :void
-    attach_function :al_get_event_source_data, [:pointer], :__intptr_t
+    attach_function :al_set_event_source_data, [:pointer, :pointer], :void
+    attach_function :al_get_event_source_data, [:pointer], :pointer
     attach_function :al_event_queue_is_empty, [:pointer], :bool
     attach_function :al_get_next_event, [:pointer, :pointer], :bool
     attach_function :al_peek_next_event, [:pointer, :pointer], :bool
@@ -721,15 +724,15 @@ module Allegro extend FFI::Library
     attach_function :al_set_window_position, [:pointer, :int, :int], :void
     attach_function :al_get_window_position, [:pointer, :pointer, :pointer],
                     :void
-    attach_function :al_toggle_window_frame, [:pointer, :bool], :void
+#    attach_function :al_toggle_display_flags, [:pointer, :bool], :void
     attach_function :al_set_window_title, [:string], :void
     attach_function :al_set_new_display_option, [:int, :int, :int], :void
     attach_function :al_get_new_display_option, [:int, :pointer], :int
     attach_function :al_reset_new_display_options, [], :void
     attach_function :al_get_display_option, [:int], :int
-    attach_function :al_get_num_display_formats, [], :int
-    attach_function :al_get_display_format_option, [:int, :int], :int
-    attach_function :al_set_new_display_format, [:int], :void
+#    attach_function :al_get_num_display_formats, [], :int
+#    attach_function :al_get_display_format_option, [:int, :int], :int
+#    attach_function :al_set_new_display_format, [:int], :void
     attach_function :al_hold_bitmap_drawing, [:bool], :void
     attach_function :al_is_bitmap_drawing_held, [], :bool
     #}}}

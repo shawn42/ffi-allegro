@@ -2,7 +2,7 @@
 require 'ffi'
 
 module Allegro extend FFI::Library
-    ffi_lib 'allegro_font-4.9.16'
+    ffi_lib 'allegro_font-4.9.18'
 
     ALLEGRO_ALIGN_LEFT   = 0
     ALLEGRO_ALIGN_CENTRE = 1
