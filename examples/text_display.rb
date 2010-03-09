@@ -39,7 +39,7 @@ def run(argc, argv)
   while !stop do
     al_clear_to_color bgcolor
     # why does this line cause it to draw in black?
-    #al_set_blender ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA, fgcolor
+    al_set_blender ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA, fgcolor
 
     al_draw_text font, 400, 300, ALLEGRO_ALIGN_CENTRE, "Hello!"
 

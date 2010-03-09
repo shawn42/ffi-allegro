@@ -819,6 +819,11 @@ module Allegro extend FFI::Library
     ALLEGRO_ALPHA                          = 2
     ALLEGRO_INVERSE_ALPHA                  = 3
 
+    ALLEGRO_ADD                            = 0
+    ALLEGRO_SRC_MINUS_DEST                 = 1
+    ALLEGRO_DEST_MINUS_SRC                 = 2
+    ALLEGRO_NUM_BLEND_OPERATIONS           = 3
+
     class ALLEGRO_LOCKED_REGION < FFI::Struct
         layout :data, :pointer,
                :format, :int,
@@ -868,7 +873,7 @@ module Allegro extend FFI::Library
     attach_function :al_is_sub_bitmap, [:pointer], :bool
     attach_function :al_clone_bitmap, [:pointer], :pointer
     attach_function :al_is_bitmap_locked, [:pointer], :bool
-    attach_function :al_set_blender, [:int, :int, ALLEGRO_COLOR.by_value],
+    attach_function :al_set_blender, [:int, :int, :int, ALLEGRO_COLOR.by_value],
                     :void
     attach_function :al_get_blender, [:pointer, :pointer, :pointer], :void
     attach_function :al_set_separate_blender, [:int, :int, :int, :int,
