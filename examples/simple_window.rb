@@ -5,8 +5,7 @@ include Allegro
 
 
 def run(argc, argv)
-#  version = al_get_allegro_version
-#  al_install_system version, nil
+  GC.start
   al_install_system ALLEGRO_VERSION_INT, nil
 
   dpy = al_create_display 800, 600

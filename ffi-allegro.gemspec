@@ -19,7 +19,7 @@ EOF
       'examples/*.rb',
   ]
 
-  s.required_ruby_version = '>= 1.9'
+  s.required_ruby_version = '>= 1.8.7'
 
   s.add_dependency( 'ffi', '>=0.6.0pre' )
 end
