@@ -119,7 +119,7 @@ module Allegro extend FFI::Library
     attach_function :al_get_audio_stream_event_source, [:pointer], :pointer
     attach_function :al_create_mixer, [:ulong, :int, :int], :pointer
     attach_function :al_destroy_mixer, [:pointer], :void
-    attach_function :al_attach_sample_to_mixer, [:pointer, :pointer], :bool
+#    attach_function :al_attach_sample_to_mixer, [:pointer, :pointer], :bool
     attach_function :al_attach_audio_stream_to_mixer, [:pointer, :pointer],
                     :bool
     attach_function :al_attach_mixer_to_mixer, [:pointer, :pointer], :bool
@@ -138,7 +138,7 @@ module Allegro extend FFI::Library
     attach_function :al_detach_mixer, [:pointer], :bool
     attach_function :al_create_voice, [:ulong, :int, :int], :pointer
     attach_function :al_destroy_voice, [:pointer], :void
-    attach_function :al_attach_sample_to_voice, [:pointer, :pointer], :bool
+#    attach_function :al_attach_sample_to_voice, [:pointer, :pointer], :bool
     attach_function :al_attach_audio_stream_to_voice, [:pointer, :pointer],
                     :bool
     attach_function :al_attach_mixer_to_voice, [:pointer, :pointer], :bool
