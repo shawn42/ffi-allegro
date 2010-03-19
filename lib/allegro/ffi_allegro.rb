@@ -7,11 +7,11 @@ module Allegro extend FFI::Library
     #{{{1 Base
     ALLEGRO_VERSION = 4
     ALLEGRO_SUB_VERSION = 9
-    ALLEGRO_WIP_VERSION = 18
+    ALLEGRO_WIP_VERSION = 19
     ALLEGRO_RELEASE_NUMBER = 1
 
     ALLEGRO_VERSION_STR = "4.9.18 (WIP)"
-    ALLEGRO_VERSION_INT = ((4 << 24) | (9 << 16) | (18 << 8) | 1)
+    ALLEGRO_VERSION_INT = ((4 << 24) | (9 << 16) | (19 << 8) | 1)
 
     ALLEGRO_DATE_STR = "2009"
     ALLEGRO_DATE = 20091129
@@ -167,7 +167,7 @@ module Allegro extend FFI::Library
     attach_function :al_append_path_component, [:pointer, :string], :void
     attach_function :al_join_paths, [:pointer, :pointer], :bool
     attach_function :al_path_cstr, [:pointer, :char], :string
-    attach_function :al_free_path, [:pointer], :void
+    attach_function :al_destroy_path, [:pointer], :void
     attach_function :al_set_path_drive, [:pointer, :string], :void
     attach_function :al_get_path_drive, [:pointer], :string
     attach_function :al_set_path_filename, [:pointer, :string], :void
